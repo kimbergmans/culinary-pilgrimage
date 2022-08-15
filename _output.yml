@@ -1,0 +1,8 @@
+bookdown::bs4_book:
+  css: style-rws.css
+  theme:
+    primary: "#067a7a"
+  repo: https://github.com/kimbergmans/culinary_pilgrimage
+
+# #067a7a
+# #942146
