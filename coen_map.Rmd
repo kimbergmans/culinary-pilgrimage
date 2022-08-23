@@ -18,7 +18,7 @@ library(shiny)
 
 setwd("C:\\Users\\Schal107\\Documents\\UBU\\Coen_present")
 
-### Use this if you want to geocode (with your own google API key): ###
+### These are all the steps, but you can start from the geocoded csv: ###
 
 #forms <- read.xlsx("coens_culinaire_reisgids_raw.xlsx", sheetIndex = 1)
 
@@ -28,19 +28,25 @@ setwd("C:\\Users\\Schal107\\Documents\\UBU\\Coen_present")
 
 #coordinates <- geocode(forms$Horecagelegenheid..naam..adresgegevens.en.website....)
 
+# remove double entries
+
+#forms <- forms[-12, ]
+
+# generate URL's that refer to the pages in the book
+
+#forms$name_st <- gsub(" ", "-", tolower(forms$Name))
+
+#forms$link <- paste0("https://kimbergmans.github.io/culinary-pilgrimage/", forms$name_st)
+
 ## add Germany coordinates for Sandra's entry
 
 #setDT(forms)
 #forms[is.na(lon), lon := 10,271483 ]
 #forms[is.na(lat), lat := 51,095123 ]
 
-### But if you want to use the pre-geocoded, start here instead: ###
+### START HERE IF YOU ONLY WANT TO GENERATE THE MAP: ###
 
 forms <- fread("Coens_reisgids_full_geocoded.csv")
-
-# remove double entries
-
-forms <- forms[-12, ]
 
 ### we can add historical world maps if we like, like this, and then add the url inside addTiles: ###
 
@@ -49,7 +55,7 @@ forms <- forms[-12, ]
 leaflet(data = forms) %>% setView(lng = 10.95931966568949, lat = 50.1812298717116, zoom = 2) %>%
   addTiles() %>%
   addCircleMarkers(lat = ~lat, lng = ~lon, popup = paste0("<a href='",forms$link,"'>",
-                                                          paste0(forms$Naam...,": ",forms$Dit.gerecht.zou.je.echt.eens.moeten.proberen..),"</a>"), 
+                                                          paste0(forms$Name,": ",forms$Dit.gerecht.zou.je.echt.eens.moeten.proberen..),"</a>"), 
                    color = "red", clusterOptions = markerClusterOptions())
 
 ```
