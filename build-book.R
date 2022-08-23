@@ -1,5 +1,7 @@
 # LOAD PACKAGES -------------------------------------------------------------------------------- 
 
+library(data.table)
+library(leaflet)
 library(tidyverse)
 library(bookdown)
 

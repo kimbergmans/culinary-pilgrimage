@@ -22,3 +22,23 @@ In de afgelopen twee jaar heb ik ontdekt dat Coen een bepaalde culinaire hobby h
 Coen en zijn vrouw Petra ruimen elk jaar rigoureus hun huis op, waardoor we hem waarschijnlijk geen plezier doen met een tastbaar afscheidscadeau. Vanuit de resultaten maak ik met behulp van R-held Neha een webpagina, waardoor dit een mooi document wordt voor Coen en dit niet sneuvelt bij een opruimronde. De aardige bijvangst is dat het open beschikbaar kan worden gemaakt en we dus allemaal culinair op reis kunnen gaan.
 
 _Kim Bergmans, Coen's Best-est UBU Colleague_
+
+```{r echo = FALSE}
+library(data.table)
+library(leaflet)
+library(tidyverse)
+library(xlsx)
+```
+
+```{r echo = FALSE}
+forms_geocoded <- fread("https://raw.githubusercontent.com/kimbergmans/culinary-pilgrimage/main/data/Coens_reisgids_full_geocoded.csv")
+```
+
+```{r echo = FALSE}
+leaflet(data = forms_geocoded) %>% setView(lng = 10.95931966568949, lat = 50.1812298717116, zoom = 2) %>%
+  addTiles() %>%
+  addCircleMarkers(lat = ~lat, lng = ~lon, popup = paste0("<a href='", forms_geocoded$link,"'>",
+                                                          paste0(forms_geocoded$Name,": ",forms_geocoded$Dit.gerecht.zou.je.echt.eens.moeten.proberen..),"</a>"), 
+                   color = "red", clusterOptions = markerClusterOptions())
+```
+
