@@ -46,7 +46,7 @@ setwd("C:\\Users\\Schal107\\Documents\\UBU\\Coen_present")
 
 ### START HERE IF YOU ONLY WANT TO GENERATE THE MAP: ###
 
-forms <- fread("Coens_reisgids_full_geocoded.csv")
+forms <- fread("https://raw.githubusercontent.com/kimbergmans/culinary_pilgrimage/main/data/Coens_reisgids_full_geocoded.csv")
 
 ### we can add historical world maps if we like, like this, and then add the url inside addTiles: ###
 
