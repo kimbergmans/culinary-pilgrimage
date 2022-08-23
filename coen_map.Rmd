@@ -30,13 +30,17 @@ setwd("C:\\Users\\Schal107\\Documents\\UBU\\Coen_present")
 
 ## add Germany coordinates for Sandra's entry
 
-setDT(forms)
-forms[is.na(lon), lon := 10,271483 ]
-forms[is.na(lat), lat := 51,095123 ]
+#setDT(forms)
+#forms[is.na(lon), lon := 10,271483 ]
+#forms[is.na(lat), lat := 51,095123 ]
 
 ### But if you want to use the pre-geocoded, start here instead: ###
 
 forms <- fread("Coens_reisgids_full_geocoded.csv")
+
+# remove double entries
+
+forms <- forms[-12, ]
 
 ### we can add historical world maps if we like, like this, and then add the url inside addTiles: ###
 
