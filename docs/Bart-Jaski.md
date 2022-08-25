@@ -28,4 +28,4 @@ Pizzeria Attenasio, Via dei Tribunali, 379, 80134 Napoli NA, Italia
 
 ## Fotos! {-}
 
-<img src="images/gerechten/pizza-bart_Bart Jaski.JPG" width="100%" style="display: block; margin: auto;" />
+<img src="images/gerechten/pizza-bart_Bart Jaski.JPG" width="50%" style="display: block; margin: auto;" />

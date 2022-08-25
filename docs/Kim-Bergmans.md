@@ -30,6 +30,6 @@ Bakkes-Höfke, Rijkel 26a Beesel, https://bakkes-hofke.nl/
 
 ## Fotos! {-}
 
-<img src="images/gerechten/Kim_vlaai_Kim Bergmans.JPG" width="141" style="display: block; margin: auto;" />
+<img src="images/gerechten/Kim_vlaai_Kim Bergmans.JPG" width="50%" style="display: block; margin: auto;" />
 
 <img src="images/people/UB_Kim Bergmans_1.jpeg" width="572" style="display: block; margin: auto;" />

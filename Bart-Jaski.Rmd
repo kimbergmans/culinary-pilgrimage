@@ -51,7 +51,7 @@ cat(forms_filtered$Map_link)
 
 ## Fotos! {-}
 
-```{r echo = FALSE, message = FALSE, warning = FALSE, out.width = "100%", fig.align = 'center'}
+```{r echo = FALSE, message = FALSE, warning = FALSE, out.width = "50%", fig.align = 'center'}
 foto_gerecht <- forms_filtered$foto_gerecht
 
 knitr::include_graphics(foto_gerecht)

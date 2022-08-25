@@ -26,7 +26,7 @@ To use the website, you can just click on the points on the map or use the menu 
 
 On behalf of the library, and with big bows to [Neha Moopen](https://github.com/nehamoopen) and [Ruben Schalk](https://github.com/RubenSchalk) who did all the coding,
 
-Kim Bergmans, _Coen’s Best-est UBU Collega_ :innocent: :smiling face with halo: :angel:  
+Kim Bergmans, _Coen’s Best-est UBU Collega_ 
 
 ```{r message = FALSE, warning = FALSE, echo = FALSE}
 library(bookdown)

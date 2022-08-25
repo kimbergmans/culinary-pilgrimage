@@ -30,4 +30,4 @@ Bakkerij Schuurmans, Schrans 145 8932 ND Leeuwarden, https://www.bakkerijschuurm
 
 <img src="images/gerechten/dorien-dumkes_Dorien Huijser.jpg" width="375" style="display: block; margin: auto;" />
 
-<img src="images/people/foto-dorien_Dorien Huijser.jpg" width="100%" style="display: block; margin: auto;" />
+<img src="images/people/foto-dorien_Dorien Huijser.jpg" width="50%" style="display: block; margin: auto;" />
