@@ -16,6 +16,11 @@ forms <- read_excel("data/coens_culinaire_reisgids_processed_in_v4.xlsx")
 ```
 
 ```{r echo = FALSE, include = FALSE, message = FALSE, warning = FALSE}
+forms <- forms[!duplicated(forms$naam),]
+```
+
+
+```{r echo = FALSE, include = FALSE, message = FALSE, warning = FALSE}
 forms_filtered <- filter(forms, naam == "Najoua Ryane")
 ```
 
