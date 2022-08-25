@@ -5,40 +5,56 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]
-# url: your book url like https://bookdown.org/yihui/bookdown
+url: https://kimbergmans.github.io/culinary-pilgrimage
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
-  This is a minimal example of Coen's Culinary Piligrimage using the bookdown package to write a book.
-  The HTML output format for this example is bookdown::bs4_book,
-  set in the _output.yml file.
+  A website of personal suggestions of restaurants and a certain dish, mostly in the Netherlands.
+  Developed as a present for our colleague, Coen Wilders
 biblio-style: apalike
 csl: chicago-fullnote-bibliography.csl
 ---
 
 # Coen's Culinary Pilgrimage {.unnumbered}
 <br>
-In de afgelopen twee jaar heb ik ontdekt dat Coen een bepaalde culinaire hobby heeft, en nee, dit is niet koken 😉. Coen gaat graag met Petra of met vrienden naar horecagelegenheden waar je iets bijzonders kunt proeven, of gelegenheden waar een bepaald gerecht is ontstaan. Het lijkt me daarom passend om hem te verrassen met een culinaire reisgids vol lekkere, unieke en uitgesproken gerechten of drankjes met de locatie waar hij deze kan gaan proeven. Met onze reislustige collega's en internationale collega's zou dit voor jaren aan culinaire traktaties moeten opleveren.
+Hello there,
 
-Coen en zijn vrouw Petra ruimen elk jaar rigoureus hun huis op, waardoor we hem waarschijnlijk geen plezier doen met een tastbaar afscheidscadeau. Vanuit de resultaten maak ik met behulp van R-held Neha een webpagina, waardoor dit een mooi document wordt voor Coen en dit niet sneuvelt bij een opruimronde. De aardige bijvangst is dat het open beschikbaar kan worden gemaakt en we dus allemaal culinair op reis kunnen gaan.
+This website was created by employees at the Utrecht University Library as a parting gift for our colleague, Coen Wilders.
+It consists of personal suggestions of restaurants and a certain dish, mostly in the Netherlands.
+As big believers in open science we created it as an open website, to be used by everyone. So enjoy!
 
-_Kim Bergmans, Coen's Best-est UBU Colleague_
+To use the website, you can just click on the points on the map or use the menu on the left.
 
-```{r echo = FALSE}
+On behalf of the library, and with big bows to [Neha Moopen](https://github.com/nehamoopen) and [Ruben Schalk](https://github.com/RubenSchalk) who did all the coding,
+
+Kim Bergmans, _Coen’s Best-est UBU Collega_ :innocent: :smiling face with halo: :angel:  
+
+```{r message = FALSE, warning = FALSE, echo = FALSE}
+library(bookdown)
 library(data.table)
+library(ggmap)
+library(RgoogleMaps)
+library(shiny)
 library(leaflet)
 library(tidyverse)
-library(xlsx)
+library(readxl)
 ```
 
-```{r echo = FALSE}
-forms_geocoded <- fread("https://raw.githubusercontent.com/kimbergmans/culinary-pilgrimage/main/data/Coens_reisgids_full_geocoded.csv")
+```{r message = FALSE, warning = FALSE, echo = FALSE}
+forms <- read_excel("data/coens_culinaire_reisgids_processed_in_v4.xlsx")
 ```
 
-```{r echo = FALSE}
-leaflet(data = forms_geocoded) %>% setView(lng = 10.95931966568949, lat = 50.1812298717116, zoom = 2) %>%
+```{r message = FALSE, warning = FALSE, echo = FALSE}
+forms <- forms[!duplicated(forms$naam),]
+```
+
+```{r message = FALSE, warning = FALSE, echo = FALSE}
+leaflet(data = forms) %>% setView(lng = 10.95931966568949, lat = 50.1812298717116, zoom = 2) %>%
   addTiles() %>%
-  addCircleMarkers(lat = ~lat, lng = ~lon, popup = paste0("<a href='", forms_geocoded$link,"'>",
-                                                          paste0(forms_geocoded$Name,": ",forms_geocoded$Dit.gerecht.zou.je.echt.eens.moeten.proberen..),"</a>"), 
+  addCircleMarkers(lat = ~lat, lng = ~lon, popup = paste0("<a href='",forms$link,"'>",
+                                                          paste0(forms$naam,": ",forms$gerecht),"</a>"), 
                    color = "red", clusterOptions = markerClusterOptions())
 ```
+
+
+
 
